@@ -1,34 +1,33 @@
+import java.math.*;
 import java.util.*;
 
 public class Fraction {
-    private int numerator;
-    private int denominator;
+    private BigInteger numerator;
+    private BigInteger denominator;
 
-    public Fraction(int numerator, int denominator) {
+    public Fraction(BigInteger numerator, BigInteger denominator) {
+        this.numerator = numerator.divide(numerator.gcd(denominator));
+        this.denominator = denominator.divide(denominator.gcd(numerator));
+    }
+
+    public BigInteger getNumerator() {return this.numerator;}
+    public void  setNumerator(BigInteger numerator) {
         this.numerator = numerator;
+    }
+
+    public BigInteger getDenominator() {return this.denominator;}
+    public void setDenominator(BigInteger denominator) {
         this.denominator = denominator;
     }
 
-    public static int gcd(int a, int b) {
-        if (b == 0) {
-            return a;
-        }
-        return gcd (b, a % b);
-    }
-
-    @Override
-    public String toString() {
-        return  this.numerator/gcd(this.numerator, this.denominator) + "/" + 
-                this.denominator/gcd(this.numerator, this.denominator);
-    }
-
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int numerator = in.nextInt();
-        int denominator = in.nextInt();
+        try (Scanner in = new Scanner(System.in)) {
+            BigInteger numerator = in.nextBigInteger();
+            BigInteger denominator = in.nextBigInteger();
 
-        Fraction fr = new Fraction(numerator, denominator);
+            Fraction fr = new Fraction(numerator, denominator);
 
-        System.out.println(fr);
+            System.out.println(fr.getNumerator() + "/" + fr.getDenominator());
+        }
     }
 }

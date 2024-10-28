@@ -6,8 +6,10 @@ public class Fraction {
     private BigInteger denominator;
 
     public Fraction(BigInteger numerator, BigInteger denominator) {
-        this.numerator = numerator.divide(numerator.gcd(denominator));
-        this.denominator = denominator.divide(denominator.gcd(numerator));
+        if (numerator.compareTo(BigInteger.ZERO) >= 0 && denominator.compareTo(BigInteger.ZERO) > 0) {
+            this.numerator = numerator.divide(numerator.gcd(denominator));
+            this.denominator = denominator.divide(denominator.gcd(numerator));
+        }
     }
 
     public BigInteger getNumerator() {return this.numerator;}

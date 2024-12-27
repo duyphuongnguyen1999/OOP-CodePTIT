@@ -1,0 +1,35 @@
+ĐỌC FILE NHỊ PHÂN – 1
+
+Cho file nhị phân DAYSO.DAT trong đó ghi một ArrayList<Integer> theo kiểu Object. 
+Hãy thống kê các số nguyên tố khác nhau có từ 3 chữ số trở lên và liệt kê theo 
+thứ tự từ nhỏ đến lớn.
+
+Input:
+File nhị phân DAYSO.DAT trong đó ghi một ArrayList<Integer>.
+
+Dữ liệu đảm bảo trong ArrayList có không quá 100000 đối tượng số Integer. 
+Các giá trị số cũng đều không quá 1000000.
+
+Output:
+Ghi lần lượt các số nguyên tố khác nhau có từ 3 chữ số trở lên theo thứ tự từ 
+nhỏ đến lớn, mỗi số ghi trên một dòng.
+
+Ví dụ:
+Input                            |  Output
+File nhị phân như mô tả đề bài.  |  Ví dụ kết quả sẽ như sau
+                                 |  113
+                                 |  163
+                                 |  229
+                                 |  887
+                                 |  907
+
+
+
+
+
+
+
+
+
+
+

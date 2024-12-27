@@ -1,0 +1,33 @@
+XỬ LÝ VĂN BẢN – 2
+
+Cho file văn bản VANBAN.in gồm không quá 1000 dòng, mỗi dòng không quá 200 ký tự. 
+Một “từ” trong file văn bản được định nghĩa là một dãy liên tiếp các ký tự không 
+chứ khoảng trống hoặc dấu tab, dấu xuống dòng.
+
+Hãy lọc ra các “từ” có chứa ký tự số và không chứa các dấu câu (gồm dấu chấm (.), 
+dấu phẩy(,), dấu chấm than (!), dấu chấm hỏi (?), dấu hai chấm (:).
+(Chú ý chỉ xét các dấu câu liệt kê ở trên).
+In danh sách các từ thoả mãn theo thứ tự từ điển.
+
+Input
+File văn bản VANBAN.in gồm không quá 1000 dòng, mỗi dòng không quá 200 ký tự
+
+Output
+Ghi ra các từ thoả mãn, mỗi từ trên một dòng, theo thứ tự từ điển.
+
+Ví dụ
+
+Input                                                       |   Output
+PTIT duy tri hoc phi nam 2019 va khong tang hoc phi         |   2019
+trong nam 2020, 2021 va 2021 den 2022.                      |   2021
+PTIT da trich 6 ty d0ong ho tro moi si1nh vien 500000!      |   6
+                                                            |   d0ong
+                                                            |   si1nh
+
+
+
+
+
+
+
+

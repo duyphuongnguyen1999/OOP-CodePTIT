@@ -1,7 +1,7 @@
-package BasicJava.J01008;
+package J01008;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,50 +10,43 @@ public class J01008 {
     public static void main(String[] args) {
         try(Scanner in = new Scanner(System.in)) {
             int T = in.nextInt();
-            List<HashMap<Integer, Integer>> result = new ArrayList<>();
+            List<LinkedHashMap<Long, Long>> result = new ArrayList<>();
             while(T-- > 0) {
-                int n = in.nextInt();
-                HashMap<Integer, Integer> subResult = primeFactorization(n);
-                result.add(subResult);
+                long n = in.nextLong();
+                LinkedHashMap<Long, Long> factorization = primeFactorization(n);
+                result.add(factorization);
             }
             printResult(result);
         }
     }
-        
-    private static boolean isPrime(int n) {
-        if (n <= 1) return false; 
-        for (int i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
 
-    private static HashMap<Integer, Integer> primeFactorization(int n) {
-        HashMap <Integer, Integer> result = new HashMap<>(); 
-        for(int i = 2; i <= n; i++) {
-            if(!isPrime(i)) {
-                continue;
-            }
-            int count = 0;
+    private static LinkedHashMap<Long, Long> primeFactorization(long n) {
+        LinkedHashMap <Long, Long> factors = new LinkedHashMap<>();
+        long count;
+        for(long i = 2; i <= Math.sqrt(n); i++) {
+            count = 0;
             while(n % i == 0) {
                 count++;
-                n /= i;
+                n/=i;
             }
-            if(count > 0) {
-                result.put(i, count);
+            if (count > 0) {
+                factors.put(i, count);
             }
         }
-        return result;
+
+        if (n > 2) {
+            factors.put(n, (long) 1);
+        }
+
+        return factors;
     }
 
-    private static void printResult(List<HashMap<Integer, Integer>> result) {
+    private static void printResult(List<LinkedHashMap<Long, Long>> result) {
         int test = 1;
-        for (HashMap<Integer, Integer> sub_result : result) {
+        for (LinkedHashMap<Long, Long> factorization : result) {
             System.out.print("Test " + test++ + ": ");
-            for (int key : sub_result.keySet()) {
-                System.out.print(key + "(" + sub_result.get(key) + ") ");
+            for (long prime : factorization.keySet()) {
+                System.out.print(prime + "(" + factorization.get(prime) + ") ");
             }
             System.out.println();
         }

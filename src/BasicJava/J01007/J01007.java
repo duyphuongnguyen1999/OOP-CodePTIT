@@ -1,18 +1,17 @@
-package BasicJava.J01007;
+package J01007;
 
-import static java.lang.StrictMath.sqrt;
-import java.util.Scanner;
+import java.util.*;
 
 public class J01007 {
     public static void main(String[] args) {
+        List<Long> input = new ArrayList<>(); 
         try(Scanner in = new Scanner(System.in)) {
             int T = in.nextInt();
-            if (T > 100) {
-                T = in.nextInt();
-            }
             while(T-- > 0) {
-                long n = in.nextLong();
-                if(isFibonacci(n)) {
+                input.add(in.nextLong());
+            }
+            for (long number : input) {
+                if (isFibonacci(number)) {
                     System.out.println("YES");
                 } else {
                     System.out.println("NO");
@@ -29,7 +28,22 @@ public class J01007 {
     }
 
     private static boolean isPerfectSquare(long x) {
-        long square = (long) sqrt(x);
-        return x == square * square; 
+        if (x < 0) return false;
+        
+        long left = 0; 
+        long right = x;
+        while(left <= right) {
+            long mid = left + (right - left)/2;
+            long square = mid * mid;
+
+            if (square == x) return true;
+            if (square < x) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        
+        return false; 
     }
 }
